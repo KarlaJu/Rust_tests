@@ -1,3 +1,16 @@
+use std::fs::File;
+use std::io::prelude::*;
+
+fn main() -> std::io::Result<()> {
+    let mut file = File::open("foo.txt")?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    assert_eq!(contents, "Hello, world!");
+    println!("Esto es lo que contiene: {}", contents);
+    Ok(())
+}
+
+
 struct Rectangle{
   width: u8,
   height: u8
